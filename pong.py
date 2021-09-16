@@ -131,11 +131,11 @@ while running:
 
     # handles the ball bounding off the paddles
     if (
-            (ball.x > left_paddle.x > ball.x - ball.radius and  # ball's width overlaps the left paddle
+            (ball.x + ball.radius > left_paddle.x > ball.x - ball.radius and  # ball's width overlaps the left paddle
             ball.y + ball.radius > left_paddle.y - PADDLE_HEIGHT//2 and  # ball is below the top of the left paddle
             ball.y - ball.radius < left_paddle.y + PADDLE_HEIGHT//2)  # ball is above the bottom of the left paddle
         or
-            (ball.x < right_paddle.x - PADDLE_WIDTH < ball.x + ball.radius and  # ball's width overlaps the right paddle
+            (ball.x- ball.radius < right_paddle.x - PADDLE_WIDTH < ball.x + ball.radius and  # ball's width overlaps the right paddle
             ball.y + ball.radius > right_paddle.y - PADDLE_HEIGHT // 2 and  # ball is below the top of the right paddle
             ball.y - ball.radius < right_paddle.y + PADDLE_HEIGHT // 2)  # ball is above the bottom of the right paddle
         ):
@@ -148,11 +148,11 @@ while running:
             ball.y_speed += 3
 
     # Checking if the ball has moving beyond the paddles into a scoring area
-    if ball.x < PLAY_WIDTH[0]:  # left player scores
-        left_score += 1
-        ball.reset(sum(PLAY_WIDTH)//2, sum(PLAY_HEIGHT)//2)
-    elif ball.x > PLAY_WIDTH[1]:  # right player scores
+    elif ball.x < PLAY_WIDTH[0]:  # right player scores
         right_score += 1
+        ball.reset(sum(PLAY_WIDTH)//2, sum(PLAY_HEIGHT)//2)
+    elif ball.x > PLAY_WIDTH[1]:  # left player scores
+        left_score += 1
         ball.reset(sum(PLAY_WIDTH) // 2, sum(PLAY_HEIGHT) // 2)
 
     # Game loop part 3: Draw #####
