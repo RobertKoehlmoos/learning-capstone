@@ -1,5 +1,6 @@
-# Pygame Template
-# Use this to start a new Pygame project
+# Lets you play Pong!
+# left player uses the W and S keys to move up and down
+# right player uses the up and down arrow keys to move up and down
 import pygame
 import random
 import math
