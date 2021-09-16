@@ -129,7 +129,7 @@ while running:
     if ball.y - ball.radius < PLAY_HEIGHT[0] or ball.y + ball.radius > PLAY_HEIGHT[1]:  # bouncing off the top and bottom
         ball.y_speed *= -1
 
-    # this if statement handles the ball bounding off the paddles
+    # handles the ball bounding off the paddles
     if (
             (ball.x > left_paddle.x > ball.x - ball.radius and  # ball's width overlaps the left paddle
             ball.y + ball.radius > left_paddle.y - PADDLE_HEIGHT//2 and  # ball is below the top of the left paddle
